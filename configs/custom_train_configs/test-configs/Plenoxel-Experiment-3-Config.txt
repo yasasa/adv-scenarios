@@ -1,0 +1,53 @@
+output_dir = '../experiments/experiment-3'
+save_params = 10
+nerf_config = '../configs/nerf/donerf.txt'
+policy_model_path = '../experiments/policy-plenoxelres512-color-only/model_rgb_2.pt'
+#policy_model_path = '../experiments/policy-plenoxelres640-rgbd/model_rgb_1.pt'
+
+debug_var_freq = 50
+
+straight_traj = True
+single_frame = False
+dont_detach_yaw = True
+
+cube = False
+voxel_attack = True
+perturb = False
+ref_perturb = False
+
+seed = 1
+
+plenoxels=True
+dataset_path = "/home/salar/datasets/carla_15x15x20_nobox_set2_reformatted"
+
+plenoxel_ckpt_path = "../plenoxels/models/exp_carlanobox_nocolmap_camscale03_res512/ckpt.npz"
+plenoxel_cfg_path = "../plenoxels/models/exp_carlanobox_nocolmap_camscale03_res512/my_custom_alt.json"
+no_depth=True
+
+#plenoxel_ckpt_path = "../plenoxels/models/exp_carlanobox_nocolmap_camscale03_depth_supervised_full/ckpt.npz"
+#plenoxel_cfg_path = "../plenoxels/models/exp_carlanobox_nocolmap_camscale03/my_custom_alt.json"
+#no_depth=False
+
+lidar_num_points=11070
+lidar_num_channels=45
+
+num_rand_inits=1
+
+# -----------------------------------------------------------------------------
+# Loss options
+# -----------------------------------------------------------------------------
+constraint = none
+mu = 100.0
+
+# -----------------------------------------------------------------------------
+# Optimizer options
+# -----------------------------------------------------------------------------
+iterations = 200
+lr = 0.05
+scheduling = 0.98
+#grad_clipping = 1.0
+grad_clipping = 0.0
+#optimizer = 'adam'
+optimizer = 'rmsprop'
+#momentum = 0.5
+momentum = 0.0

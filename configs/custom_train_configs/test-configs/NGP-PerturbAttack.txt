@@ -1,0 +1,44 @@
+output_dir = '../experiments/experiment-3'
+#policy_model_path = '../experiments/policy-rgbd-ngpcarlaold/model_rgb_1.pt'
+#policy_model_path = '../experiments/policy-rgb-ngpcarlaold/model_rgb_3.pt'
+#policy_model_path = '../experiments/policy-rgbd-ngpcarlaold-turn/model_rgb_2.pt'
+policy_model_path = '../experiments/policy-rgbd-ngpcarlaold-turn-new/model_rgb_2.pt'
+#policy_model_path = '../experiments/policy-rgb-ngpcarlaold-turn/model_rgb_3.pt'
+
+straight_traj = False
+no_depth=False
+dont_detach_yaw = True
+
+num_steps_traj = 50
+tn_traj = 2.0
+
+objective = MultiFramePerturb
+
+ngp=True
+#ngp_cfg_path = "/home/yasasa/kaolin-wisp/configs/ngp_nerf.yaml"
+ngp_cfg_path = "../wisp/configs/ngp_nerf.yaml"
+
+#lidar_num_points=3200
+#lidar_num_channels=32
+lidar_num_points=11070
+lidar_num_channels=45
+
+seed = 1
+num_rand_inits=1
+debug_var_freq = 50
+save_params = 10
+
+# -----------------------------------------------------------------------------
+# Loss options
+# -----------------------------------------------------------------------------
+constraint = none
+mu = 100.0
+
+# -----------------------------------------------------------------------------
+# Optimizer options
+# -----------------------------------------------------------------------------
+iterations = 200
+lr = 0.01
+scheduling = 1.0
+grad_clipping = 0.0
+optimizer = 'adam'

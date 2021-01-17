@@ -1,0 +1,62 @@
+output_dir = '../experiments/experiment-3-0-1'
+#policy_model_path = '../experiments/policy-rgbd-ngpcarlaold/model_rgb_1.pt'
+#policy_model_path = '../experiments/policy-rgb-ngpcarlaold/model_rgb_3.pt'
+#policy_model_path = '../experiments/policy-rgb-ngpcarlaold-turn/model_rgb_3.pt'
+#policy_model_path = '../experiments/policy-rgbd-ngpcarlaold-turn/model_rgb_2.pt'
+#policy_model_path = '/home/yasasa/experiments/carla-data-6/policy_epoch_69_no_start.pt'
+policy_model_path = '../experiments/carla-data-6/policy_epoch_69_no_start.pt'
+
+dt = 0.01
+num_steps_traj = 1000
+tn_traj = 2
+
+opt-batch = 1
+
+save_params = 10
+debug_var_freq = 1
+
+goal = 1
+start = 0
+
+single_frame = False
+dont_detach_yaw = True
+ngp-field = True
+camera = True
+
+objective = MultiFrameNGPColourAttack
+transform-params = [0.35, 0.12, 0., 0.35, -0.1, 0]
+
+#ngp_cfg_path = "/home/yasasa/kaolin-wisp/configs/ngp_nerf.yaml"
+#ngp_cfg_path = "../wisp/configs/ngp_nerf.yaml"
+#ngp_cfg_path = "../wisp/configs/ngp_nerf_bg.yaml"
+ngp_cfg_path = "../wisp/configs/ngp_nerf_bg_new.yaml"
+
+#obj_cfg_path = "../wisp/configs/ngp_nerf2mlp_legov8.yaml"
+#obj_cfg_path = "../wisp/configs/nglod_nerf.yaml"
+#obj_cfg_path = "../wisp/configs/ngp_nerf_legov8.yaml"
+obj_cfg_path = "../wisp/configs/ngp_nerf_legov8_new.yaml"
+
+#lidar_num_points=3200
+#lidar_num_channels=32
+lidar_num_points=11070
+lidar_num_channels=45
+
+seed = 1
+num_rand_inits=1
+num_obj=2
+
+# -----------------------------------------------------------------------------
+# Loss options
+# -----------------------------------------------------------------------------
+constraint = none
+mu = 100.0
+
+# -----------------------------------------------------------------------------
+# Optimizer options
+# -----------------------------------------------------------------------------
+iterations = 200
+lr = 0.01
+momentum = 0.5
+scheduling = 1.
+grad_clipping = 0.
+optimizer = 'adam'

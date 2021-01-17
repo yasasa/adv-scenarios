@@ -1,0 +1,4 @@
+[submodule "cubeadv/nerf"]
+	path = cubeadv/nerf
+	url = https://github.com/sally-chen/nerfpp_depth
+	branch = reorg-dirs

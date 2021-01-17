@@ -1,0 +1,55 @@
+output_dir = 'experiments/experiment-3-1-2'
+#policy_model_path = '../experiments/policy-rgbd-ngpcarlaold/model_rgb_1.pt'
+#policy_model_path = '../experiments/policy-rgb-ngpcarlaold/model_rgb_3.pt'
+#policy_model_path = '../experiments/policy-rgb-ngpcarlaold-turn/model_rgb_3.pt'
+#policy_model_path = '../experiments/policy-rgbd-ngpcarlaold-turn/model_rgb_2.pt'
+policy_model_path = 'adversarial-nerf-models/rgb-policy.pt'
+
+dt = 0.01
+num_steps_traj = 100
+tn_traj = 2
+
+opt-batch = 4
+
+save_params = 10
+debug_var_freq = 1
+
+goal = 2
+start = 1
+
+single_frame = False
+dont_detach_yaw = False
+ngp-field = True
+camera = True
+
+objective = MultiFrameNGPColourAttack
+transform-params = [0.08,0.25,0.,-0.12,0.25,0]
+
+ngp_cfg_path = "wisp/configs/ngp_nerf_bg.yaml"
+
+obj_cfg_path = "wisp/configs/ngp_nerf_legov8.yaml"
+
+#lidar_num_points=3200
+#lidar_num_channels=32
+lidar_num_points=11070
+lidar_num_channels=45
+
+seed = 1
+num_rand_inits=1
+num_obj=2
+
+# -----------------------------------------------------------------------------
+# Loss options
+# -----------------------------------------------------------------------------
+constraint = none
+mu = 100.0
+
+# -----------------------------------------------------------------------------
+# Optimizer options
+# -----------------------------------------------------------------------------
+iterations = 200
+lr = 0.01
+momentum = 0.5
+scheduling = 0.99
+grad_clipping = 0.
+optimizer = 'adam'

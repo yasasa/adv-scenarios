@@ -1,0 +1,59 @@
+### INPUT
+datadir = nerf
+scene = boxoracle
+expname = box_oracle
+basedir = ../configs/nerf/
+config = None
+ckpt_path = None
+no_reload = False
+testskip = 1
+
+### TRAINING
+N_iters = 1000001
+N_rand = 1024
+lrate = 0.0005
+lrate_decay_factor = 0.1
+lrate_decay_steps = 5000
+
+### CASCADE
+cascade_level = 1
+cascade_samples = 32
+
+### TESTING
+chunk_size = 16384
+
+### RENDERING
+det = False
+max_freq_log2 = 10 # 10
+max_freq_log2_viewdirs = 4 # 4
+netdepth = 8
+netwidth = 256
+use_viewdirs = True
+
+### CONSOLE AND TENSORBOARD
+i_img = 1000
+i_print = 50
+i_weights = 5000
+
+
+have_box = True
+train_box_only = False
+depth_training = True
+donerf_pretrain = False
+
+front_sample = 192
+back_sample = 128
+
+fg_bg_net = True
+
+pencode = False
+use_zval = False
+
+penc_pts = False
+max_freq_log2_pts=3
+world_size=1
+
+train_seg = False
+
+box_number = 6
+

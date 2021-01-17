@@ -1,0 +1,54 @@
+policy_model_path = 'adversarial-nerf-models/rgb-policy.pt'
+
+dt = 0.01
+num_steps_traj = 600
+tn_traj = 2
+
+opt-batch = 1
+
+save_params = 10
+debug_var_freq = 1
+
+goal = 1
+start = 0
+car-start = [105.4, 129.5, 3.141592653589]
+
+detach = True
+ngp-field = True
+camera = True
+box = True
+
+objective = TransformAndColorAttack
+transform-params = [-0.0799, 0.12, 0.0188, 0., -0.0799, -0.0866, 0.0188, 0., -0.0799, 0.12, 0.0188, 0., -0.03, 0.06640373, 0.0188, 1.5707964, 0.008, -0.03546104, 0.0188, -1.5707964]
+transform-min = [-0.0799, -0.0866, 0.0188, 0., -0.0799, -0.0866, 0.0188, 0., -0.0799, -0.0866, 0.0188, 0., -0.03, -0.0866, 0.0188, 1.57079632, 0.008, -0.09, 0.0188, -1.57079632]
+transform-max = [-0.0799, 0.12, 0.0188, 0., -0.0799, 0.12, 0.0188, 0., -0.0799, 0.12, 0.0188, 0., -0.03, 0.12, 0.0188, 1.57079632, 0.008, -0.01, 0.0188, -1.57079632]
+param-search-keyword  = 'codebookcolor'
+                     
+ngp_cfg_path = "wisp/configs/ngp_nerf_bg_new.yaml"
+
+obj_fields = ["wisp/configs/ngp_hydrant_new.yaml","wisp/configs/ngp_hydrant_new.yaml", "wisp/configs/ngp_hydrant_new.yaml", "wisp/configs/ngp_car.yaml", "wisp/configs/ngp_car.yaml"]
+
+#lidar_num_points=3200
+#lidar_num_channels=32
+lidar_num_points=11070
+lidar_num_channels=45
+
+seed = 1
+num_rand_inits=5
+num_obj=6
+
+# -----------------------------------------------------------------------------
+# Loss options
+# -----------------------------------------------------------------------------
+constraint = none
+mu = 100.0
+
+# -----------------------------------------------------------------------------
+# Optimizer options
+# -----------------------------------------------------------------------------
+iterations = 50
+lr = 0.1
+momentum = 0.
+scheduling = 3
+grad_clipping = 0.
+optimizer = 'adam'

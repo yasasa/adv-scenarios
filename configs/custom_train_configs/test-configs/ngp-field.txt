@@ -1,0 +1,40 @@
+output_dir = '../experiments/ngp-field'
+ngp_cfg_path = 'wisp/configs/ngp_nerf.yaml'
+
+objective = 'NGPFieldAttack'
+camera = True
+
+policy_model_path = '/home/yasasa/experiments/carla-data-6/policy_epoch_69_no_start.pt'
+
+opt-batch = 1
+
+dt = 0.01
+num_steps_traj = 1000
+
+save_params = 10
+debug_var_freq = 1
+
+goal = 1
+start = 0
+
+single_frame = False
+dont_detach_yaw = False
+ngp-field = True
+
+seed = 123
+
+# -----------------------------------------------------------------------------
+# Loss options
+# -----------------------------------------------------------------------------
+constraint = none
+mu = 100.0
+
+# -----------------------------------------------------------------------------
+# Optimizer options
+# -----------------------------------------------------------------------------
+iterations = 200
+lr = 0.01
+momentum = 0.5
+scheduling = 1.
+grad_clipping = 0.
+optimizer = 'adam'

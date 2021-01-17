@@ -1,0 +1,35 @@
+# Copyright (c) 2022, NVIDIA CORPORATION & AFFILIATES.  All rights reserved.
+#
+# NVIDIA CORPORATION & AFFILIATES and its licensors retain all intellectual property
+# and proprietary rights in and to this software, related documentation
+# and any modifications thereto.  Any use, reproduction, disclosure or
+# distribution of this software and related documentation without an express
+# license agreement from NVIDIA CORPORATION & AFFILIATES is strictly prohibited.
+
+parent: 'nerf_base.yaml'
+
+dataset:
+    num_rays_sampled_per_img: 4096
+    
+grid:
+    grid_type: 'HashGrid'
+    interpolation_type: 'linear'
+    multiscale_type: 'cat'
+    feature_dim: 4
+    feature_std: 0.01
+    feature_bias: 0.0
+    num_lods: 16
+    codebook_bitwidth: 19
+    tree_type: 'geometric'
+    min_grid_res: 2
+    max_grid_res: 64
+    blas_level: 7
+
+nef:
+    view_embedder: 'none'
+    density_decoder: 'none'
+    color_decoder: 'none'
+    pretrained: 'adversarial-nerf-models/ngp_hydrant_depth.pth'
+
+trainer:
+    prune_every: 10 # iterations
