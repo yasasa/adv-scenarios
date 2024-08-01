@@ -15,7 +15,7 @@ pip install -r requirements.txt
 pip install -e .
 ```
 
-Download the models from [here]()
+Download the models from [here](https://drive.google.com/file/d/1gbz2L_C78M9LRYG1fXafmnuG5-NinLWV/view?usp=sharing)
 
 ## How to use
 
